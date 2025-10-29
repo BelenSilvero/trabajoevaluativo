@@ -15,7 +15,6 @@
     --text: #222;
     --card-bg: rgba(255,255,255,0.9);
   }
-
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
@@ -25,8 +24,6 @@
     background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);
     overflow-x:hidden;
   }
-
-  /* CONTENEDOR PRINCIPAL */
   .wrap{
     min-height:100vh;
     display:flex;
@@ -35,8 +32,6 @@
     padding:40px 20px;
     position:relative;
   }
-
-  /* FORMATO 'TARJETA' CENTRAL */
   .card{
     width:100%;
     max-width:900px;
@@ -47,33 +42,10 @@
     position:relative;
     overflow:visible;
   }
-
-  /* TÍTULO Y SUBTÍTULO */
-  h1{
-    margin:0;
-    font-size:1.9rem;
-    line-height:1.15;
-    font-weight:700;
-  }
-  h2{
-    margin:8px 0 18px 0;
-    font-size:1rem;
-    color:#5a5a5a;
-    font-weight:500;
-  }
-
-  /* FRASE / TESTIMONIO: aparece justo debajo del título */
-  .hero-row{
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-  }
-
-  .left{
-    flex:1 1 360px;
-  }
-
+  h1{margin:0;font-size:1.9rem;line-height:1.15;font-weight:700;}
+  h2{margin:8px 0 18px 0;font-size:1rem;color:#5a5a5a;font-weight:500;}
+  .hero-row{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+  .left{flex:1 1 360px;}
   .testimonio-box{
     margin-top:8px;
     background:var(--card-bg);
@@ -89,282 +61,115 @@
     flex-direction:column;
     gap:8px;
   }
-  .testimonio-box.visible{
-    opacity:1;
-    transform: translateY(0) scale(1);
-  }
-
-  .quote{
-    font-size:1.15rem;
-    font-style:italic;
-    margin:0;
-    color:#222;
-  }
-  .autor{
-    font-weight:600;
-    color:#444;
-    font-size:.95rem;
-    margin-left:auto;
-  }
-
-  /* Botón cambiar */
-  .controls{
-    display:flex;
-    gap:10px;
-    margin-top:12px;
-    align-items:center;
-  }
+  .testimonio-box.visible{opacity:1;transform: translateY(0) scale(1);}
+  .quote{font-size:1.15rem;font-style:italic;margin:0;color:#222;}
+  .autor{font-weight:600;color:#444;font-size:.95rem;margin-left:auto;}
+  .controls{display:flex;gap:10px;margin-top:12px;align-items:center;}
   .btn{
     background:linear-gradient(90deg,var(--accent1),#ff94b7);
-    color:white;
-    border:none;
-    padding:10px 14px;
-    border-radius:12px;
-    font-weight:600;
-    cursor:pointer;
+    color:white;border:none;padding:10px 14px;border-radius:12px;
+    font-weight:600;cursor:pointer;
     box-shadow:0 6px 14px rgba(255,107,154,0.22);
   }
   .btn:active{transform:translateY(1px)}
   .small-note{font-size:.85rem;color:#666;padding-top:4px}
-
-  /* COLUMNA DERECHA: ilustración grande / didáctica */
-  .right{
-    flex:0 0 240px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+  .right{flex:0 0 240px;display:flex;align-items:center;justify-content:center;}
   .badge{
     background:linear-gradient(135deg,var(--accent2),#fff1c6);
-    padding:10px 14px;
-    border-radius:14px;
-    font-weight:700;
+    padding:10px 14px;border-radius:14px;font-weight:700;
     box-shadow: 0 8px 24px rgba(0,0,0,0.06);
   }
-
-  /* DECOS: SVGs flotantes (pelotas) */
-  .deco{
-    position:absolute;
-    pointer-events:none;
-    opacity:.12;
-    will-change: transform;
-  }
-
-  /* distintas pelotas con tamaños y posiciones */
-  .ball1{ width:120px; left:-20px; top:8%; animation:floatA 8s ease-in-out infinite; }
-  .ball2{ width:100px; right:-28px; top:14%; animation:floatB 10s ease-in-out infinite; opacity:.14}
-  .ball3{ width:88px; left:12%; bottom:6%; animation:floatC 9s ease-in-out infinite; opacity:.11}
-  .ball4{ width:72px; right:10%; bottom:18%; animation:rotateSlow 12s linear infinite; opacity:.14}
-  .ball5{ width:64px; left:80%; top:40%; animation:floatA 14s ease-in-out infinite; opacity:.09}
-
-  @keyframes floatA {
-    0% { transform: translateY(0) translateX(0) rotate(0deg) }
-    50% { transform: translateY(-14px) translateX(6px) rotate(6deg) }
-    100% { transform: translateY(0) translateX(0) rotate(0deg) }
-  }
-  @keyframes floatB {
-    0% { transform: translateY(0) translateX(0) rotate(0deg) }
-    50% { transform: translateY(-18px) translateX(-6px) rotate(-6deg) }
-    100% { transform: translateY(0) translateX(0) rotate(0deg) }
-  }
-  @keyframes floatC {
-    0% { transform: translateY(0) translateX(0) rotate(0deg) }
-    50% { transform: translateY(-10px) translateX(10px) rotate(4deg) }
-    100% { transform: translateY(0) translateX(0) rotate(0deg) }
-  }
-  @keyframes rotateSlow {
-    from { transform: rotate(0deg) }
-    to { transform: rotate(360deg) }
-  }
-
-  /* peques decorativos */
-  .accent-dot{ position:absolute; width:12px; height:12px; border-radius:50%; opacity:.9 }
-  .dot1{ background:var(--accent3); left:6%; top:28% }
-  .dot2{ background:var(--accent2); right:12%; top:6% }
-  .dot3{ background:var(--accent1); left:20%; bottom:18% }
-
-  /* estilo didáctico - listito debajo */
-  .info{
-    margin-top:18px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-  }
+  .info{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
   .info .pill{
     background:rgba(255,255,255,0.85);
-    padding:10px;
-    border-radius:12px;
-    font-size:.9rem;
+    padding:10px;border-radius:12px;font-size:.9rem;
     box-shadow:0 6px 14px rgba(0,0,0,0.05);
-    display:flex;
-    gap:8px;
-    align-items:center;
-    justify-content:center;
+    display:flex;gap:8px;align-items:center;justify-content:center;
   }
-
-  /* RESPONSIVO */
-  @media (max-width:880px){
-    .hero-row{flex-direction:column}
-    .right{order:2; margin-top:14px}
-    .info{grid-template-columns:repeat(2,1fr)}
-  }
-  @media (max-width:520px){
-    h1{font-size:1.5rem}
-    .right{display:none}
-    .info{grid-template-columns:1fr}
-  }
-
-  /* pequeños toques interactivos */
+  @media (max-width:880px){.hero-row{flex-direction:column}.right{order:2;margin-top:14px}.info{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){h1{font-size:1.5rem}.right{display:none}.info{grid-template-columns:1fr}}
   .testimonio-box:hover{ transform: translateY(-4px) scale(1.01); transition: transform .25s ease, opacity .6s}
-  .icon-small{width:20px; height:20px}
 </style>
 </head>
 <body>
-
-  <div class="wrap">
-    <div class="card" role="main" aria-labelledby="mainTitle">
-      <div class="hero-row">
-        <div class="left">
-          <h1 id="mainTitle">La influencia de los problemas emocionales en el rendimiento deportivo de los jóvenes</h1>
-          <h2>Trabajo de investigación final realizado por <strong>Belén Silvero</strong></h2>
-
-          <!-- testimonio aparece acá justo debajo -->
-          <div class="testimonio-box" id="testimonio">
-            <p class="quote" id="texto">"..."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div class="autor" id="autor">– Autor</div>
-              <div style="flex:1"></div>
-              <div class="controls">
-                <button class="btn" id="otroBtn" title="Mostrar otro testimonio">Otro testimonio</button>
-              </div>
+<div class="wrap">
+  <div class="card" role="main" aria-labelledby="mainTitle">
+    <div class="hero-row">
+      <div class="left">
+        <h1 id="mainTitle">La influencia de los problemas emocionales en el rendimiento deportivo de los jóvenes</h1>
+        <h2>Trabajo de investigación final realizado por <strong>Belén Silvero</strong></h2>
+        <div class="testimonio-box" id="testimonio">
+          <p class="quote" id="texto">Cargando testimonio...</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="autor" id="autor"></div>
+            <div style="flex:1"></div>
+            <div class="controls">
+              <button class="btn" id="otroBtn" title="Mostrar otro testimonio">Otro testimonio</button>
             </div>
-            <div class="small-note" id="autoNote">Cambia automáticamente cada 8 segundos · Tocá "Otro testimonio" para ver más.</div>
           </div>
-
-          <!-- info didáctica -->
-          <div class="info" aria-hidden="true">
-            <div class="pill"><svg class="icon-small" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffd166"/></svg> Psicología y deporte</div>
-            <div class="pill"><svg class="icon-small" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="6" fill="#6bd6ff"/></svg> Testimonios reales</div>
-            <div class="pill"><svg class="icon-small" viewBox="0 0 24 24"><path d="M3 12h18" stroke="#ff6b9a" stroke-width="2" stroke-linecap="round"/></svg> Estrategias prácticas</div>
-          </div>
+          <div class="small-note">Cambia automáticamente cada 8 segundos · Tocá "Otro testimonio" para ver más.</div>
         </div>
-
-        <div class="right" aria-hidden="true">
-          <div class="badge">Jóvenes · Rendimiento · Emoción</div>
+        <div class="info" aria-hidden="true">
+          <div class="pill">🧠 Psicología y deporte</div>
+          <div class="pill">💬 Testimonios reales</div>
+          <div class="pill">💡 Estrategias prácticas</div>
         </div>
       </div>
+      <div class="right" aria-hidden="true">
+        <div class="badge">Jóvenes · Rendimiento · Emoción</div>
+      </div>
     </div>
-
-    <!-- ILUSTRACIONES SVG FLOTANTES (PELOTAS/ICONOS) -->
-    <!-- Football -->
-    <svg class="deco ball1" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ffdede"/></linearGradient></defs>
-      <circle cx="60" cy="60" r="56" fill="url(#g1)" stroke="#ff6b9a" stroke-width="6"/>
-      <path d="M60 18 L78 40 L60 60 L42 40 Z" fill="#ff6b9a" opacity=".9"/>
-      <path d="M60 102 L78 80 L60 60 L42 80 Z" fill="#ff6b9a" opacity=".7"/>
-      <path d="M18 60 L40 42 L60 60 L40 78 Z" fill="#fff" opacity=".8"/>
-      <path d="M102 60 L80 42 L60 60 L80 78 Z" fill="#fff" opacity=".9"/>
-    </svg>
-
-    <!-- Basketball -->
-    <svg class="deco ball2" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" fill="#fff7f0" stroke="#ffb07e" stroke-width="6"/>
-      <path d="M60 4 A56 56 0 0 1 60 116" stroke="#ff7f2a" stroke-width="6" fill="none"/>
-      <path d="M4 60 A56 56 0 0 1 116 60" stroke="#ff7f2a" stroke-width="6" fill="none"/>
-      <path d="M20 20 L100 100" stroke="#ff7f2a" stroke-width="6" opacity=".9"/>
-      <path d="M100 20 L20 100" stroke="#ff7f2a" stroke-width="6" opacity=".6"/>
-    </svg>
-
-    <!-- Tennis -->
-    <svg class="deco ball3" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" fill="#efffff" stroke="#6bd6ff" stroke-width="6"/>
-      <path d="M10 60a50 50 0 0 0 100 0" stroke="#6bd6ff" stroke-width="6" fill="none"/>
-      <path d="M110 60a50 50 0 0 0-100 0" stroke="#6bd6ff" stroke-width="6" fill="none"/>
-    </svg>
-
-    <!-- Volleyball / neutral -->
-    <svg class="deco ball4" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" fill="#fffaf6" stroke="#ffd166" stroke-width="6"/>
-      <path d="M30 90 C46 70, 74 50, 90 30" stroke="#ffd166" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M30 30 C46 50, 74 70, 90 90" stroke="#ffd166" stroke-width="6" fill="none" stroke-linecap="round"/>
-    </svg>
-
-    <!-- Small tennis/bouncy -->
-    <svg class="deco ball5" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" fill="#fff0f6" stroke="#ff94b7" stroke-width="5"/>
-      <path d="M40 60a20 20 0 0 0 40 0" stroke="#ff6b9a" stroke-width="4" fill="none"/>
-    </svg>
-
-    <!-- PUNTOS DECORATIVOS -->
-    <div class="accent-dot dot1"></div>
-    <div class="accent-dot dot2"></div>
-    <div class="accent-dot dot3"></div>
-
   </div>
+</div>
 
 <script>
-  const testimonios = [
-    { texto: "Cuando era más chico me afectaban los comentarios sobre mi físico o mi juego, pero después aprendés a no darles importancia. Eso te hace más fuerte no solo en el deporte, sino también en la vida.", autor: "Ignacio, 18 años" },
-    { texto: "Perder o fallar no significa que no puedas lograrlo después.", autor: "Agustín L, 18 años" },
-    { texto: "Pensé en abandonar, pero me di cuenta de que dejarlo sería perder todo el proceso y el esfuerzo que ya había hecho.", autor: "Agustín F, 16 años" },
-    { texto: "No todo tiene que estar resuelto para empezar.", autor: "Juan, 20 años" },
-    { texto: "El equipo me ayudó a entender que las emociones también entrenan.", autor: "María, 16 años" },
-    { texto: "Cuando hablé con el entrenador, mi rendimiento cambió.", autor: "Lucas, 18 años" }
-  ];
+const testimonios = [
+  { texto: "Cuando era más chico me afectaban los comentarios sobre mi físico o mi juego, pero después aprendés a no darles importancia. Eso te hace más fuerte no solo en el deporte, sino también en la vida.", autor: "Ignacio, 18 años" },
+  { texto: "Perder o fallar no significa que no puedas lograrlo después.", autor: "Agustín L, 18 años" },
+  { texto: "Pensé en abandonar, pero me di cuenta de que dejarlo sería perder todo el proceso y el esfuerzo que ya había hecho.", autor: "Agustín F, 16 años" },
+  { texto: "El vóley fue un alivio para mí en muchos momentos. Me ayudó a distraerme y a canalizar mis pensamientos.", autor: "Uma, 15 años" },
+  { texto: "Aprendí a controlar mis nervios y a no darle tanta importancia a lo que digan los demás. El deporte me ayudó mucho con eso.", autor: "Candelaria, 16 años" },
+  { texto: "Aprendí que nunca me tengo que rendir, que tengo que ser constante y seguir adelante siempre.", autor: "Álvaro, 15 años" },
+  { texto: "No suelo tener muchos momentos difíciles, pero creo que todo se resuelve entrenando y poniéndole ganas.", autor: "Fantino, 16 años" },
+  { texto: "Practicar un deporte con amigas y personas que te motivan es lo más lindo que hay.", autor: "Renata, 15 años" },
+  { texto: "Para mí el básquet es mi vida, no me imagino sin hacerlo.", autor: "Naomi, 16 años" }
+];
 
-  const textoEl = document.getElementById('texto');
-  const autorEl = document.getElementById('autor');
-  const box = document.getElementById('testimonio');
-  const btn = document.getElementById('otroBtn');
+const textoEl = document.getElementById('texto');
+const autorEl = document.getElementById('autor');
+const box = document.getElementById('testimonio');
+const btn = document.getElementById('otroBtn');
+let current = -1;
 
-  let current = -1;
-  function mostrarAleatorio(forceIndex=null){
-    let idx;
-    if(Number.isInteger(forceIndex)) idx = forceIndex % testimonios.length;
-    else {
-      idx = Math.floor(Math.random() * testimonios.length);
-      // evitar repetir el mismo inmediatamente
-      if(idx === current) idx = (idx + 1) % testimonios.length;
-    }
-    current = idx;
-    const t = testimonios[idx];
-    // animación de salida-in
-    box.classList.remove('visible');
-    setTimeout(()=>{
-      textoEl.textContent = `"${t.texto}"`;
-      autorEl.textContent = `– ${t.autor}`;
-      box.classList.add('visible');
-    }, 260);
+function mostrarAleatorio(forceIndex=null){
+  let idx;
+  if(Number.isInteger(forceIndex)) idx = forceIndex % testimonios.length;
+  else {
+    idx = Math.floor(Math.random() * testimonios.length);
+    if(idx === current) idx = (idx + 1) % testimonios.length;
   }
+  current = idx;
+  const t = testimonios[idx];
+  box.classList.remove('visible');
+  setTimeout(()=>{
+    textoEl.textContent = `"${t.texto}"`;
+    autorEl.textContent = `– ${t.autor}`;
+    box.classList.add('visible');
+  }, 260);
+}
 
-  // mostrar al cargar
-  window.addEventListener('load', ()=>{
-    mostrarAleatorio();
-  });
-
-  // botón para cambiar
-  btn.addEventListener('click', ()=> mostrarAleatorio());
-
-  // cambio automático cada 8s
-  let auto = setInterval(()=> mostrarAleatorio(), 8000);
-  // si el usuario pulsa el botón, reiniciamos el timer para dar tiempo
-  btn.addEventListener('click', ()=>{
-    clearInterval(auto);
-    auto = setInterval(()=> mostrarAleatorio(), 8000);
-  });
-
-  // accesibilidad: permitir avanzar con espacio cuando focus en el botón
-  btn.addEventListener('keyup', (e) => {
-    if(e.code === 'Space' || e.code === 'Enter') mostrarAleatorio();
-  });
-
-  // Pequeña interacción: al pasar el mouse por una pelota, aumenta su opacidad
-  const decos = document.querySelectorAll('.deco');
-  decos.forEach(d => {
-    d.addEventListener('mouseenter', ()=> d.style.opacity = 0.28);
-    d.addEventListener('mouseleave', ()=> d.style.opacity = d.classList.contains('ball2') ? 0.14 : 0.12);
-  });
-
+window.addEventListener('load', ()=>{
+  mostrarAleatorio();
+});
+btn.addEventListener('click', ()=> mostrarAleatorio());
+let auto = setInterval(()=> mostrarAleatorio(), 8000);
+btn.addEventListener('click', ()=>{
+  clearInterval(auto);
+  auto = setInterval(()=> mostrarAleatorio(), 8000);
+});
+btn.addEventListener('keyup', (e) => {
+  if(e.code === 'Space' || e.code === 'Enter') mostrarAleatorio();
+});
 </script>
 </body>
 </html>
